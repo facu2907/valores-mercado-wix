@@ -3,7 +3,10 @@ name: Actualizar valores.json semanalmente
 on:
   schedule:
     - cron: '0 11 * * 1'  # Lunes 11:00 UTC (08:00 Uruguay)
-  workflow_dispatch:      # Permite ejecutarlo a mano desde GitHub
+  workflow_dispatch:
+
+permissions:
+  contents: write  # 🚨 ESTA LÍNEA ES LA CLAVE
 
 jobs:
   build:
@@ -33,6 +36,5 @@ jobs:
           git add valores.json
           git commit -m "🤖 Actualización automática valores.json" || echo "Sin cambios"
           git push origin HEAD:main
-
 
 
