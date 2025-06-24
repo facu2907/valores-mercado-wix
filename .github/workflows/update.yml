@@ -1,1 +1,33 @@
+name: Actualizar valores.json semanalmente
+
+on:
+  schedule:
+    - cron: '0 11 * * 1'  # Lunes 11:00 UTC (08:00 Uruguay)
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: Instalar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Instalar dependencias
+        run: pip install pandas requests openpyxl
+
+      - name: Ejecutar script de actualización
+        run: python update_valores.py
+
+      - name: Subir cambios
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add valores.json
+          git commit -m "🤖 Actualización automática valores.json"
+          git push
 
