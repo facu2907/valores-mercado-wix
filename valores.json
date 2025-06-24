@@ -1,7 +1,7 @@
 {
   "novillos_gordos": 2.11,
-  "vacas_gordas": 1.80,
-  "vaquillonas_gordas": 2.10,
+  "vacas_gordas": 1.8,
+  "vaquillonas_gordas": 2.1,
   "novillos": 2.49,
   "novillo_faena": 4.65,
   "vaca": 2.16,
@@ -15,5 +15,6 @@
   "sorgo": 235,
   "cebada": 250,
   "colza": 395,
-  "carinata": 405
+  "carinata": 405,
+  "fecha_actualizacion": "2025-06-24"
 }
